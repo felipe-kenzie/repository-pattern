@@ -1,7 +1,10 @@
-import  express  from "express";
+import express from "express";
 
-const app = express()
+import { usersRoutes } from "./routes/user.routes";
 
-app.use(express.json())
+const app = express();
 
-export {app}
+app.use(express.json());
+app.use("/users", usersRoutes);
+
+export { app };

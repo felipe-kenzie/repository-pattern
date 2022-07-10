@@ -15,3 +15,13 @@ configurações ts.config.json
 "baseUrl": "./src",
 "skipDefaultLibCheck": true,
 // "strict": true,
+
+
+configurações jest.config.ts
+
+
+preset: "ts-jest",
+setupFilesAfterEnv: ["<rootDir>/setupTest.ts"],
+testEnvironment: "node",
+testMatch: ["<rootDir>/src/__tests__/**/*.test.ts"],
+verbose: true,

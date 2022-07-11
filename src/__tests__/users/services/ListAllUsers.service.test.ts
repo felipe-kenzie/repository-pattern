@@ -1,42 +1,45 @@
-// import { UsersRepository } from "../../../repositories/implementations/UsersRepository";
-// import { ListAllUsersService } from "../../../services/listAllUsers.service";
+// import { PostgresRepository } from "../../../repositories/implementations/PostgresRepository";
+import { UsersRepository } from "../../../repositories/implementations/UsersRepository";
+import { ListAllUsersService } from "../../../services/listAllUsers.service";
 
-// describe("ListAllUsersService", () => {
-//   let usersRepository: UsersRepository;
-//   let listAllUsersService: ListAllUsersService;
+describe("ListAllUsersService", () => {
+  let usersRepository: UsersRepository;
 
-//   beforeAll(() => {
-//     usersRepository = UsersRepository.getInstance();
-//     listAllUsersService = new ListAllUsersService(usersRepository);
-//   });
+  let listAllUsersService: ListAllUsersService;
 
-//   it("should be able to list all users", () => {
-//     const user1 = usersRepository.create({
-//       name: "Felipe",
-//       email: "felipe@mail.com",
-//     });
+  beforeAll(() => {
+    usersRepository = UsersRepository.getInstance();
 
-//     const user2 = usersRepository.create({
-//       name: "Fabio",
-//       email: "fabio@mail.com",
-//     });
+    listAllUsersService = new ListAllUsersService(usersRepository);
+  });
 
-//     const user3 = usersRepository.create({
-//       name: "Joana",
-//       email: "joana@mail.com",
-//     });
+  test("should be able to list all users", async () => {
+    const user1 = await usersRepository.create({
+      name: "Felipe",
+      email: "felipe@mail.com",
+    });
 
-//     const users = listAllUsersService.execute();
+    const user2 = await usersRepository.create({
+      name: "Fabio",
+      email: "fabio@mail.com",
+    });
 
-//     expect(users).toEqual(
-//       expect.arrayContaining([
-//         expect.objectContaining({
-//           name: "Felipe",
-//           email: "felipe@mail.com",
-//         }),
-//         user2,
-//         user3,
-//       ])
-//     );
-//   });
-// });
+    const user3 = await usersRepository.create({
+      name: "Joana",
+      email: "joana@mail.com",
+    });
+
+    const users = await listAllUsersService.execute();
+
+    expect(users).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          name: "Felipe",
+          email: "felipe@mail.com",
+        }),
+        user2,
+        user3,
+      ])
+    );
+  });
+});

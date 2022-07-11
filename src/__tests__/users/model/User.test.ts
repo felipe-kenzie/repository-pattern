@@ -18,8 +18,8 @@ describe("User model", () => {
       email: "felipe@mail.com",
       admin: false,
     });
-    expect(validate(user.id)).toBe(true);
     expect(user.created_at).toBeInstanceOf(Date);
     expect(user.updated_at).toBeInstanceOf(Date);
+    expect(validate(user.id)).toBe(true);
   });
 });

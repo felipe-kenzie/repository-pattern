@@ -3,8 +3,8 @@ import { ListAllUsersService } from "services/listAllUsers.service";
 
 class ListAllUsersController {
   constructor(private listAllUsersService: ListAllUsersService) {}
-  handle(req: Request, res: Response): Response {
-    const users = this.listAllUsersService.execute();
+  async handle(req: Request, res: Response): Promise<Response> {
+    const users = await this.listAllUsersService.execute();
 
     return res.json(users);
   }

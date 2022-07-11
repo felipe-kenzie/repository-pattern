@@ -40,8 +40,8 @@ verbose: true,
  * [x] Refatorar services
  * [x] Refatorar controllers
  * [x] Passar em todos os testes com um vetor
- * [] Implementar um banco de dados
- * [] Passar en todos os testes com um banco de dados
+ * [x] Implementar um banco de dados
+ * [x] Passar en todos os testes com um banco de dados
 
 
 ### Aplicação dos conceitos

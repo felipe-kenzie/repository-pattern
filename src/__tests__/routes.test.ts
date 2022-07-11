@@ -1,7 +1,8 @@
 import request from "supertest";
 
 import { app } from "../app";
-import { UsersRepository } from "../repositories/implementations/UsersRepository";
+import { PostgresRepository } from "../repositories/implementations/PostgresRepository";
+// import { UsersRepository } from "../repositories/implementations/UsersRepository";
 
 describe("[POST] /users", () => {
   test("should be able to create new users", async () => {
@@ -35,7 +36,7 @@ describe("[POST] /users", () => {
 
 describe("[GET] /users", () => {
   it("should be able to list all users", async () => {
-    const usersRepository = UsersRepository.getInstance();
+    const usersRepository = new PostgresRepository();
 
     const user1 = await usersRepository.create({
       name: String(Math.random()),

@@ -1,14 +1,14 @@
-// import { PostgresRepository } from "../../../repositories/implementations/PostgresRepository";
+import { PostgresRepository } from "../../../repositories/implementations/PostgresRepository";
 import { UsersRepository } from "../../../repositories/implementations/UsersRepository";
 import { ListAllUsersService } from "../../../services/listAllUsers.service";
 
 describe("ListAllUsersService", () => {
-  let usersRepository: UsersRepository;
+  let usersRepository: PostgresRepository;
 
   let listAllUsersService: ListAllUsersService;
 
   beforeAll(() => {
-    usersRepository = UsersRepository.getInstance();
+    usersRepository = new PostgresRepository();
 
     listAllUsersService = new ListAllUsersService(usersRepository);
   });

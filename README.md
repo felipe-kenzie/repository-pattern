@@ -36,20 +36,20 @@ verbose: true,
 
 ## Objetivos
 
- * [] Implementar o usersRepository com um vetor
- * [] Refatorar services
- * [] Refatorar controllers
- * [] Passar em todos os testes com um vetor
+ * [x] Implementar o usersRepository com um vetor
+ * [x] Refatorar services
+ * [x] Refatorar controllers
+ * [x] Passar em todos os testes com um vetor
  * [] Implementar um banco de dados
  * [] Passar en todos os testes com um banco de dados
 
 
 ### Aplicação dos conceitos
 
- * [] Repository pattern
- * [] Single-responsibility Principle 
- * [] Liskov Substitution Principle 
- * [] Dependency Inversion Principle
+ * [x] Repository pattern
+ * [x] Single-responsibility Principle 
+ * [x] Liskov Substitution Principle 
+ * [x] Dependency Inversion Principle
 
 
 ## Prisma

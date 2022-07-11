@@ -1,13 +1,14 @@
 import { Response, Request } from "express";
 
-import { createUserService } from "../services";
+import { CreateUserService } from "../services/createUser.service";
 
 class CreateUserController {
+  constructor(private createUserService: CreateUserService) {}
   handle(req: Request, res: Response): Response {
     const { email, name } = req.body;
 
     try {
-      const newUser = createUserService.execute({ email, name });
+      const newUser = this.createUserService.execute({ email, name });
 
       return res.status(201).json(newUser);
     } catch (error) {

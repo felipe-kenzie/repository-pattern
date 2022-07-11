@@ -1,8 +1,11 @@
-import { users } from "../database";
 import { User } from "../models/User";
+import { IUsersRepository } from "../repositories/IUsersRepository";
 
 class ListAllUsersService {
-  execute(): User[] {
+  constructor(private usersRepository: IUsersRepository) {}
+  execute(): Promise<User[]> | User[] {
+    const users = this.usersRepository.list();
+
     return users;
   }
 }

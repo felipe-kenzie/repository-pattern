@@ -1,10 +1,10 @@
 import { Request, Response } from "express";
-
-import { listAllUsersService } from "../services";
+import { ListAllUsersService } from "services/listAllUsers.service";
 
 class ListAllUsersController {
+  constructor(private listAllUsersService: ListAllUsersService) {}
   handle(req: Request, res: Response): Response {
-    const users = listAllUsersService.execute();
+    const users = this.listAllUsersService.execute();
 
     return res.json(users);
   }
